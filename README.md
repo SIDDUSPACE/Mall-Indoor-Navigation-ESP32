@@ -6,7 +6,7 @@
 <br>
 
 <p align="center">
-  <img src="pro.png" width="600" title="Project Animation">
+  <img src="Demo.gif" width="600" title="Project Animation">
 </p>
 
 ## 🌟 Visual Animation Overview
