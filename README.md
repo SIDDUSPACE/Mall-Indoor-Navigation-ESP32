@@ -2,7 +2,7 @@
 
 > A high-fidelity UWB/BLE simulation monitoring 5 mall zones in real-time.
 
-![Wokwi Simulation Animation](https://via.placeholder.com/600x400.png?text=Add+Your+Wokwi+GIF+Here)
+![Wokwi Simulation Animation](https://wokwi.com/projects/451386486946792449)
 
 ## 🚀 Features
 * **Dynamic Visualization**: Real-time distance mapping with color-coded bars.
