@@ -1,21 +1,45 @@
-# 🛒 Mall Indoor Navigation System (ESP32-S3)
+# 📍 Smart Mall Navigation System (ESP32-S3)
+[![Platform: ESP32-S3](https://img.shields.io/badge/Platform-ESP32--S3-blue?style=for-the-badge&logo=espressif)](https://www.espressif.com/en/products/socs/esp32-s3)
+[![Protocol: UWB/BLE](https://img.shields.io/badge/Protocol-UWB%2FBLE%20Simulation-green?style=for-the-badge)](https://en.wikipedia.org/wiki/Ultra-wideband)
+[![Simulator: Wokwi](https://img.shields.io/badge/Simulator-Wokwi-red?style=for-the-badge)](https://wokwi.com)
 
-> A high-fidelity UWB/BLE simulation monitoring 5 mall zones in real-time.
+<br>
 
-![Wokwi Simulation Animation](https://wokwi.com/projects/451386486946792449)
+<p align="center">
+  <img src="pro.png" width="600" title="Project Animation">
+</p>
 
-## 🚀 Features
-* **Dynamic Visualization**: Real-time distance mapping with color-coded bars.
-* **UWB/BLE Logic**: Simulates wireless node signals using 12-bit ADC precision.
-* **ESP32-S3 Powered**: Optimized for dual-core processing and SPI communication.
+## 🌟 Visual Animation Overview
+This project features a **Dynamic Signal Strength UI** on the ILI9341 display:
+* **Pulse Bars**: Color-coded signal bars that grow/shrink based on proximity.
+* **Real-time Mapping**: ADC data is sampled and smoothed to prevent flickering.
+* **Color Feedback**: Individual colors for FRUITS (Green), DAIRY (White), etc., for instant recognition.
 
-## 🛠️ Technical Details
-| Component | Pin Configuration |
-| :--- | :--- |
-| **TFT SCK** | GPIO 14 |
-| **TFT MOSI** | GPIO 13 |
-| **Sensors (1-5)** | GPIO 1, 2, 3, 4, 5 |
+---
 
-## 📂 Project Structure
-- `mall_nav.ino`: Core logic for signal processing and display.
-- `diagram.json`: Full wiring blueprint for Wokwi.
+## 🛠️ Hardware Blueprint
+<div align="center">
+
+| Component | Pin | Function |
+| :--- | :---: | :--- |
+| **TFT SCK** | `GPIO 14` | High-speed Clock |
+| **TFT MOSI** | `GPIO 13` | Data Transmission |
+| **UWB Nodes** | `GPIO 1-5` | Simulated Anchor Signals |
+
+</div>
+
+---
+
+## 💻 Logic Flow & Animation Effects
+1. **Signal Capture**: The ESP32-S3 reads the 12-bit analog signals (0-4095) from 5 independent nodes.
+2. **Proximity Translation**: Data is mapped to a 0.0m - 30.0m range for mall-scale accuracy.
+3. **Dynamic UI Rendering**: 
+    - The screen performs "Partial Refresh" (fillRect) to update values without screen flicker.
+    - Signal bars use a reversed-mapping algorithm: closer products show a larger, more intense pulse bar.
+
+---
+
+## 🚀 How to Run
+1. Open the `diagram.json` in Wokwi.
+2. Upload `mall_nav.ino`.
+3. Interact with the **Potentiometers** to simulate walking through the mall.
